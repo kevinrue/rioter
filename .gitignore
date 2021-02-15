@@ -4,3 +4,6 @@
 .Ruserdata
 *.html
 .Renviron
+inst/doc
+doc
+Meta
