@@ -1,0 +1,30 @@
+---
+title: "Test Riot API"
+author: "Kevin Rue-Albrecht"
+date: "14/02/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(jsonlite)
+library(httr)
+```
+
+```{r}
+api_key <- Sys.getenv("RIOT_API_KEY")
+api_key
+```
+
+# Get summoner data
+
+```{r}
+api_host <- "euw1.api.riotgames.com"
+summoner_name <- "Kewizard FR"
+# summoner_name <- "Cyrlop"
+url <- URLencode(sprintf("https://%s/lol/summoner/v4/summoners/by-name/%s", api_host, summoner_name))
+query <- GET(url, add_headers(`X-Riot-Token` = api_key))
+query_data <- content(query)
+str(query_data)
+```
+
