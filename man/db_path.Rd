@@ -2,9 +2,12 @@
 % Please edit documentation in R/setup.R
 \name{db_path}
 \alias{db_path}
+\alias{db_dir}
 \title{Database Configuration}
 \usage{
 db_path()
+
+db_dir()
 }
 \value{
 Path to the SQLite database.
@@ -13,5 +16,6 @@ Path to the SQLite database.
 Database Configuration
 }
 \examples{
+db_dir()
 db_path()
 }

@@ -12,7 +12,9 @@ RoxygenNote: 7.1.1
 Imports:
     utils,
     httr,
-    fs
+    fs,
+    RSQLite,
+    tibble 
 Suggests: 
     knitr,
     rmarkdown
