@@ -1,0 +1,23 @@
+---
+title: "test_riot_api"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{test_riot_api}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rioter)
+```
+
+```{r}
+get_summoner_by_name()
+```
