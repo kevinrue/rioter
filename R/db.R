@@ -1,4 +1,7 @@
-#' Title
+# Database tables
+.table_summoner <- "summoners"
+
+#' Summoner Data
 #'
 #' @param summoner Summoner name.
 #'
@@ -10,9 +13,9 @@
 #'
 #' @examples
 #' if (interactive()) {
-#'   db_add_new_summoner_by_name()
+#'   db_add_or_update_summoner()
 #' }
-db_add_new_summoner_by_name <- function(summoner = "Kewizard FR") {
+db_add_or_update_summoner <- function(summoner = "Kewizard FR") {
     summoner_data <- get_summoner_by_name(summoner)
     summoner_data <- as_tibble(summoner_data)
     if (!db_table_exists(.table_summoner)) {

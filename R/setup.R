@@ -22,6 +22,23 @@ db_dir <- function() {
     file.path(fs::path_home(), paste0(".", packageName()))
 }
 
+#' Database Global Management
+#'
+#' @return A logical scalar indicating whether the directory was created.
+#' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'   db_dir_create()
+#' }
+db_dir_create <- function() {
+    .db_dir <- db_dir()
+    if (!dir.exists(.db_dir)) {
+        return(dir.create(.db_dir))
+    }
+    return(FALSE)
+}
+
 #' Database Checks
 #'
 #' @return A logical scalar indicating whether the database exists.
@@ -29,8 +46,8 @@ db_dir <- function() {
 #'
 #' @examples
 #' db_exists()
-#' db_table_exists("summoners")
 db_exists <- function() {
+    # Answer the question
     file.exists(db_path())
 }
 
@@ -41,6 +58,9 @@ db_exists <- function() {
 #' @export
 #'
 #' @importFrom RSQLite SQLite dbConnect dbListTables dbDisconnect
+#'
+#' @examples
+#' db_table_exists("summoners")
 db_table_exists <- function(table) {
     if (db_exists()) {
         conn <- dbConnect(SQLite(), dbname = db_path())
@@ -52,5 +72,3 @@ db_table_exists <- function(table) {
         return(FALSE)
     }
 }
-
-.table_summoner <- "summoners"
