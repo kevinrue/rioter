@@ -2,6 +2,7 @@
 
 export(db_path)
 export(get_summoner_by_name)
+importFrom(fs,path_home)
 importFrom(httr,GET)
 importFrom(httr,add_headers)
 importFrom(httr,content)
