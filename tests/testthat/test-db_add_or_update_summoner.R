@@ -1,5 +1,5 @@
 test_that("db_add_or_update_summoner() adds a user", {
-    # skip("RIOT API issue?")
+    suppressWarnings(rioter::db_dir_create())
     unlink(rioter::db_path())
 
     out <- rioter::db_add_or_update_summoner()
