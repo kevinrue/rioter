@@ -19,7 +19,12 @@ db_path <- function() {
 #'
 #' @importFrom utils packageName
 db_dir <- function() {
-    file.path(fs::path_home(), paste0(".", packageName()))
+    # Unit tests use this to set a temporary directory
+    env_db_dir <- Sys.getenv("RIOTER_DB_DIR")
+    if (identical(env_db_dir, "")) {
+        env_db_dir <- file.path(fs::path_home(), paste0(".", utils::packageName()))
+    }
+    env_db_dir
 }
 
 #' Database Global Management
